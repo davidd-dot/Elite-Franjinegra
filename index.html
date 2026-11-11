@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#151315" />
+  <title>Élite Franjinegra · Examen de Admisión</title>
+  <style>
+    :root{--bg:#100f12;--panel:#211c20;--panel2:#2c2429;--wine:#7b2737;--wine2:#b04459;--gold:#e8c987;--cream:#fff7e6;--muted:#b7aeb0;--line:#59414a;--ok:#9fd7ad;--bad:#ffabb1}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;color:var(--cream);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;background:radial-gradient(ellipse at 50% -15%,#47202f 0%,#1b151c 40%,#100f12 85%);}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.17;background-image:repeating-linear-gradient(135deg,transparent 0 35px,#7b2737 35px 45px,transparent 45px 78px);mask-image:linear-gradient(180deg,#000,transparent 60%)}
+    .shell{width:min(760px,calc(100% - 30px));margin:0 auto;padding:36px 0 70px;position:relative}
+    header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:25px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.09em;font-size:.86rem}
+    .crest{width:41px;height:48px;clip-path:polygon(5% 0,95% 0,95% 65%,50% 100%,5% 65%);background:repeating-linear-gradient(90deg,#1a171b 0 10px,#922e44 10px 20px);border:2px solid var(--gold);display:grid;place-items:center;color:var(--gold);font-weight:1000;text-shadow:0 2px 5px #000}
+    .tag{font-size:.68rem;text-transform:uppercase;letter-spacing:.11em;border:1px solid var(--gold);color:var(--gold);border-radius:30px;padding:7px 11px;white-space:nowrap}
+    main{background:linear-gradient(155deg,rgba(45,34,41,.98),rgba(23,20,25,.98));border:1px solid var(--line);border-radius:23px;box-shadow:0 25px 60px #07050777;overflow:hidden}
+    .accent{height:7px;background:repeating-linear-gradient(90deg,#8c2b41 0 35px,#101014 35px 70px)}
+    .body{padding:clamp(22px,6vw,48px)}
+    .eyebrow{font-size:.77rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:800}
+    h1{font-family:Georgia,serif;letter-spacing:.02em;font-size:clamp(2.4rem,7vw,4.6rem);line-height:1.03;margin:12px 0 14px;color:var(--gold)}
+    h2{font-family:Georgia,serif;font-size:clamp(1.8rem,5vw,2.9rem);line-height:1.15;margin:12px 0 20px;color:var(--gold)}
+    h3{font-size:1.15rem;margin:16px 0 10px}
+    p{line-height:1.7;color:#ded6d8;margin:12px 0}
+    .lead{font-size:1.08rem}
+    .rule{height:1px;background:var(--line);margin:24px 0}
+    .btn{border:0;border-radius:11px;background:var(--gold);color:#20171b;padding:15px 22px;font-weight:900;font-size:.95rem;cursor:pointer;transition:transform .15s,filter .15s;max-width:100%;}
+    .btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+    .btn:focus-visible,input:focus-visible{outline:3px solid #f5dfad;outline-offset:3px}
+    .btn.alt{background:transparent;border:1px solid #9b7d86;color:#fff0ec}
+    .btn.small{font-size:.81rem;padding:11px 13px}
+    .actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:24px}
+    .notice{background:#3a2830;border:1px solid #76505d;border-radius:12px;padding:15px 17px;font-size:.9rem;color:#ead9dc;line-height:1.6}
+    .progress-wrap{margin:12px 0 30px}.progress-label{display:flex;justify-content:space-between;color:var(--muted);font-size:.78rem;margin-bottom:9px}.track{height:8px;border-radius:10px;background:#4b3b43;overflow:hidden}.track > div{height:100%;background:linear-gradient(90deg,var(--wine2),var(--gold));transition:width .3s}
+    .question-count{font-size:.82rem;color:var(--muted);margin-bottom:9px}
+    .prompt{font-weight:700;font-size:clamp(1.13rem,3.7vw,1.45rem);line-height:1.5;color:white;margin:10px 0 18px}
+    .formula{border:1px dashed #94747d;background:#140f16;border-radius:13px;padding:20px;text-align:center;font-family:Georgia,serif;font-size:1.6rem;color:var(--gold);margin:13px 0}
+    input{width:100%;background:#100f12;border:1px solid #83616e;border-radius:10px;padding:16px;color:white;font:inherit;margin-top:3px}
+    input::placeholder{color:#a5999f}
+    .feedback{border-radius:12px;padding:14px 16px;line-height:1.5;margin-top:15px;white-space:pre-line;font-weight:600}.feedback.good{background:#213b2b;color:var(--ok);border:1px solid #4d8262}.feedback.bad{background:#4a252d;color:var(--bad);border:1px solid #99626a}
+    .linkish{background:transparent;border:0;padding:0;text-align:left;color:var(--gold);text-decoration:underline;text-underline-offset:3px;cursor:pointer;font:inherit;font-weight:700}
+    .skip-area{margin-top:19px;color:var(--muted);font-size:.89rem}
+    .stamp{display:inline-block;transform:rotate(-7deg);font-weight:900;border:3px double var(--gold);color:var(--gold);padding:10px 20px;letter-spacing:.12em;margin:15px 0}
+    .code{background:#110e12;border:1px solid var(--gold);border-radius:17px;font-size:clamp(2.9rem,11vw,5.1rem);font-weight:900;letter-spacing:.18em;text-align:center;color:var(--gold);padding:18px 10px;margin:23px 0;font-variant-numeric:tabular-nums}
+    .foot{color:#958a8d;text-align:center;font-size:.74rem;margin-top:20px;line-height:1.5}
+    .hidden{display:none!important}
+    .sparkles{font-size:2.3rem}
+    .confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:10}.confetti i{position:absolute;top:-15px;display:block;width:9px;height:15px;animation:fall 3.7s linear forwards;opacity:.88}@keyframes fall{to{transform:translate3d(60px,110vh,0) rotate(720deg)}}
+    @media(max-width:480px){.tag{font-size:.57rem;padding:6px}.brand{font-size:.72rem}.crest{width:34px;height:40px}.body{padding:24px 19px}}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header><div class="brand"><div class="crest" aria-hidden="true">EF</div><span>ÉLITE<br>FRANJINEGRA</span></div><span class="tag">Comité Supremo de Admisión</span></header>
+  <main><div class="accent"></div><div class="body" id="app" aria-live="polite"></div></main>
+  <div class="foot">Institución de prestigio discutible · Uso exclusivo de aspirantes con cojones · © Élite Franjinegra</div>
+</div>
+<div class="confetti" id="confetti" aria-hidden="true"></div>
+<script>
+/* =====================================================================
+   ✏️ CONFIGURACIÓN FÁCIL DE EDITAR
+   Para cambiar respuestas, frases o el candado, modifica solo esta zona.
+   Guarda el .html y abre el archivo en el navegador para probarlo.
+   Si lo publicas en GitHub Pages, sube la versión nueva para actualizar.
+   ===================================================================== */
+const CONFIG = {
+  codigoCandado: "5172",          // Cámbialo por la combinación real del candado
+  fisicaCorrecta: "784.8",        // F = 80 * 9.81 = 784.8 N
+  salidasNulas: ["David Vicente", "Vicente", "David V", "David V."],
+  salvonara: ["Mario Juez", "Mario"],
+  martillo: ["Darío Blanco", "Dario Blanco", "Dario"],
+  relevista: ["Alvaro González"],       // ⚠️ Sustituir por el nombre del burgalés bilbaíno
+  clubOrigen: ["Atlético Salamanca", "Atletico Salamanca", "Salamanca"],
+  miembrosActuales: "PENDIENTE", // ⚠️ Número de integrantes que siguen en el club
+  diferenciaAlturaCm: "PENDIENTE", // ⚠️ Diferencia en centímetros, NO en años
+  dani: ["Daniel Blanco", "Dani Blanco", "Daniel", "Dani"],
+  permitirSaltarPendientes: true  // Pruebas provisionales: desactivar en la versión final
+};
+/* ===================================================================== */
+
+const app = document.querySelector('#app');
+let stage=0, index=0, mistakes=0, route='normal';
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm=s=>String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+const number=s=>{const n=String(s).trim().replace(',','.').match(/^-?\d+(?:\.\d+)?/);return n?Number(n[0]):NaN;};
+const isPending=value=>String(Array.isArray(value)?value[0]:value).toUpperCase()==='PENDIENTE';
+const matches=(answer,expected)=>{
+  if(Array.isArray(expected))return expected.some(v=>norm(answer)===norm(v));
+  return norm(answer)===norm(expected);
+};
+const Q = [
+  [
+    {title:'Departamento de Física de Altísimo Rendimiento', text:'Resuelva la siguiente ecuación física de extrema complejidad. Un atleta de 80 kg experimenta una aceleración de 9,81 m/s². ¿Qué fuerza resulta? Introduzca el resultado en newtons.', formula:'F = m × a',placeholder:'Ej. 123,45 N',validate:a=>Math.abs(number(a)-Number(CONFIG.fisicaCorrecta))<.11,
+      good:'Asombroso. La NASA acaba de ponerse en contacto con nosotros.',bad:'La física ha presentado una queja formal contra su respuesta.',alternate:true},
+  ],
+  [
+    {text:'¿Quién acumula el mayor número de salidas nulas en competición oficial?', placeholder:'Nombre del experto en salidas...',answer:()=>CONFIG.salidasNulas,good:'Correcto. Los tacos de salida todavía tiemblan al escuchar su nombre.',bad:'Error. Revisa el archivo histórico de salidas prematuras.'},
+    {text:'¿Quién elabora la mejor SALVONARA del mundo?',placeholder:'Chef de prestigio internacional...',answer:()=>CONFIG.salvonara,good:'La Academia Internacional de la Salvonara confirma la respuesta.',bad:'Incorrecto. Esto es una ofensa directa a la gastronomía franjinegra.'},
+    {text:'¿Quién ostenta el actual récord riojano de lanzamiento de martillo?',placeholder:'Nombre y apellido...',answer:()=>CONFIG.martillo,good:'¡Correcto! Un lanzamiento digno de pasar a los anales del martillismo.',bad:'Error. El martillo ha caído lejos de la respuesta correcta.'},
+    {text:'¿Quién es el burgalés bilbaíno que ha salvado más ligas con esos relevazos y que posee un potentísimo 800?',placeholder:'Su legendario nombre...',answer:()=>CONFIG.relevista,good:'El comité confirma: esos relevazos deberían ser patrimonio nacional.',bad:'Error. Parece que has olvidado al salvador de las ligas.'},
+  ],
+  [
+    {text:'¿Cuál es el club del que nace la Élite Franjinegra?',placeholder:'Nombre del club...',answer:()=>CONFIG.clubOrigen,good:'El comité confirma que conoces los orígenes de esta prestigiosa institución.',bad:'¿Cómo pretendes entrar en la Élite sin conocer tu propia historia?'},
+    {text:'¿Cuántos integrantes de la prestigiosa Élite Franjinegra permanecen actualmente en el club?',placeholder:'Número de supervivientes...',answer:()=>CONFIG.miembrosActuales,numeric:true,good:'Censo confirmado. La especie resiste, por ahora.',bad:'Cada vez quedan menos. La especie está oficialmente en peligro de extinción.'},
+    {text:'¿Qué diferencia existe entre el miembro más mayor y el más joven de la Élite Franjinegra?',placeholder:'Introduzca la diferencia...',hint:'Introduzca el valor numérico correspondiente.',answer:()=>CONFIG.diferenciaAlturaCm,height:true,good:'¡Correcto! Aquí nadie ha hablado de edades. Hablábamos de centímetros.',bad:'Incorrecto. ¿Quién ha dicho que estuviésemos hablando de edades? El comité recomienda leer con más atención.'},
+  ],
+  [
+    {title:'El legado de una leyenda',text:'¿Quién es la persona que ha dejado un legado en el atletismo, no solo en La Rioja, con múltiples récords, sino también a nivel nacional, donde se ha colado en más de una ocasión en la final del Campeonato de España, y acredita una marca de 51,72?',placeholder:'Nombre de esta leyenda...',answer:()=>CONFIG.dani,good:'No cabía ninguna otra respuesta. El protagonista de esta historia siempre has sido tú.',bad:'Piensa bien: esta historia es bastante más personal de lo que parece.'}
+  ]
+];
+const stageNames=['Física de alto rendimiento','Cultura general franjinegra','Historia y supervivencia','El legado de una leyenda'];
+function renderStart(){app.innerHTML=`<div class="eyebrow">Documento oficial · Expediente n.º 0001</div><h1>ÉLITE<br>FRANJINEGRA</h1><div class="stamp">ACCESO RESTRINGIDO</div><h3>¿Es usted digno de abrir la Proteína Camuños?</h3><p class="lead">El consumo de este suplemento está reservado a miembros acreditados de la <strong>prestigiosa Élite Franjinegra</strong>.</p><p>Antes de proceder a la apertura del bote, deberá demostrar su pertenencia a este selecto círculo superando <strong>cuatro pruebas oficiales</strong> de física, cultura, historia y memoria atlética.</p><div class="notice">⚠️ El comité no se responsabiliza de las respuestas incorrectas, del orgullo herido ni de posibles casos de salvonara mal elaborada.</div><div class="actions"><button class="btn" id="start">INICIAR EXAMEN DE ADMISIÓN →</button></div>`;document.querySelector('#start').addEventListener('click',()=>{stage=0;index=0;renderQ()})}
+function totalDone(){return Q.slice(0,stage).reduce((s,qs)=>s+qs.length,0)+index}
+function renderQ(){let q=Q[stage][index],done=totalDone(),total=Q.flat().length,percent=Math.round(done/total*100);app.innerHTML=`<div class="eyebrow">Prueba ${stage+1} de 4</div><h2>${esc(q.title||stageNames[stage])}</h2><div class="progress-wrap"><div class="progress-label"><span>Progreso de admisión</span><span>${percent}%</span></div><div class="track"><div style="width:${percent}%"></div></div></div><div class="question-count">Pregunta ${done+1} de ${total}</div><div class="prompt">${esc(q.text)}</div>${q.formula?`<div class="formula">${esc(q.formula)}</div>`:''}${q.hint?`<p style="font-size:.86rem;color:var(--muted)">${esc(q.hint)}</p>`:''}<form id="questionForm"><label for="answer" class="eyebrow">Su respuesta oficial</label><input id="answer" type="text" autocomplete="off" placeholder="${esc(q.placeholder||'Escriba su respuesta...')}" required/><div id="feedback" aria-live="assertive"></div><div class="actions"><button class="btn" type="submit" id="submit">COMPROBAR RESPUESTA →</button></div></form>${q.alternate?'<div class="skip-area">¿No se considera usted físico? <button class="linkish" id="alternate">Solicitar acceso al departamento especial de no físicos</button></div>':''}<div class="actions"><button class="btn alt small" id="back" type="button">← Volver al inicio</button></div>`;
+  document.querySelector('#questionForm').addEventListener('submit',submitAnswer);
+  document.querySelector('#back').addEventListener('click',()=>{if(confirm('¿Abandonar el examen y empezar desde el principio?'))renderStart()});
+  if(q.alternate)document.querySelector('#alternate').addEventListener('click',renderAlternate);
+  document.querySelector('#answer').focus();
+  let expected=q.answer?.();
+  if(isPending(expected)) {document.querySelector('#feedback').innerHTML='<div class="feedback bad">⚙️ Esta pregunta necesita que se configure su respuesta antes de entregar la web. Puedes seguir probando el recorrido con el botón provisional.</div>';
+    if(CONFIG.permitirSaltarPendientes){const b=document.createElement('button');b.className='btn alt small';b.type='button';b.textContent='⏭ Saltar pregunta pendiente (solo pruebas)';b.onclick=next;document.querySelector('#questionForm .actions').append(b)}
+  }
+}
+function submitAnswer(e){e.preventDefault();const q=Q[stage][index],value=document.querySelector('#answer').value.trim();let expected=q.answer?.(),ok=false;if(q.validate)ok=q.validate(value);else if(q.height)ok=!isPending(expected)&&Math.abs(number(value)-Number(expected))<.001&&(/^(\s*\d+(?:[.,]\d+)?\s*(cm|cent[ií]metros?)?\s*)$/i).test(value);else if(q.numeric)ok=!isPending(expected)&&Math.abs(number(value)-Number(expected))<.001;else ok=!isPending(expected)&&matches(value,expected);
+  const feedback=document.querySelector('#feedback');feedback.innerHTML=`<div class="feedback ${ok?'good':'bad'}">${esc(ok?q.good:q.bad)}</div>`;
+  if(ok){document.querySelector('#submit').disabled=true;document.querySelector('#answer').disabled=true;const b=document.createElement('button');b.className='btn';b.textContent=stage===3?'OBTENER VEREDICTO FINAL →':'CONTINUAR →';b.type='button';b.onclick=next;document.querySelector('#questionForm .actions').append(b);if(q.alternate)document.querySelector('#alternate').disabled=true}
+  else {mistakes++;document.querySelector('#answer').focus();document.querySelector('#answer').select()}
+}
+function renderAlternate(){
+  route='alternativa';
+  app.innerHTML=`<div class="eyebrow">Prueba 1 · Protocolo de emergencia</div>
+  <h2>Departamento Especial de No Físicos</h2>
+  <p>El comité comprende que no todo aspirante posee un doctorado en física cuántica. Le ofrecemos una oportunidad de demostrar su potencial intelectual.</p>
+  <div class="prompt">Un atleta tira tres vallas, pierde una zapatilla y asegura que «ha hecho buena carrera». ¿Cuántas vallas ha tirado?</div>
+  <form id="altForm">
+    <label class="eyebrow" for="altAnswer">Su respuesta</label>
+    <input id="altAnswer" type="text" inputmode="numeric" placeholder="Escribe un número..." required/>
+    <div id="altFeedback" aria-live="polite"></div>
+    <div class="actions"><button class="btn" type="submit" id="altSubmit">RESPONDER →</button><button class="btn alt" type="button" id="normal">Volver a física</button></div>
+  </form>
+  <div id="altContinue" class="actions hidden"><button class="btn" type="button" id="altNext">CONTINUAR A LA PRUEBA 2 →</button></div>`;
+  document.querySelector('#normal').addEventListener('click',renderQ);
+  // La navegación está FUERA del formulario para que un envío no la bloquee.
+  document.querySelector('#altNext').addEventListener('click',()=>{stage=1;index=0;renderQ();});
+  document.querySelector('#altForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const a=number(document.querySelector('#altAnswer').value);
+    if(a===3){
+      document.querySelector('#altFeedback').innerHTML='<div class="feedback good">¡Correcto! Tres vallas. El Comité le permite pasar a la siguiente prueba.</div>';
+      document.querySelector('#altSubmit').disabled=true;
+      document.querySelector('#altAnswer').disabled=true;
+      document.querySelector('#altContinue').classList.remove('hidden');
+      document.querySelector('#altNext').focus();
+    }else{
+      document.querySelector('#altFeedback').innerHTML='<div class="feedback bad">Incorrecto. Pista: las vallas derribadas cuentan una a una, y aquí el comité es muy estricto.</div>';
+      mistakes++;
+    }
+  });
+  document.querySelector('#altAnswer').focus();
+}
+function next(){index++;if(index>=Q[stage].length){index=0;stage++}if(stage>=Q.length)renderFinal();else renderQ()}
+function renderFinal(){app.innerHTML=`<div class="eyebrow">Resolución oficial · Aprobado</div><div class="sparkles">🏆</div><h1>ENHORABUENA,<br>CAMUÑOS</h1><div class="stamp">APTO PARA LA ÉLITE</div><p class="lead">Tras una evaluación exhaustiva y de una seriedad absolutamente cuestionable, el comité certifica su pertenencia a la <strong>Élite Franjinegra</strong>.</p><p>Y ahora, fuera de bromas: Dani, has dejado huella dentro y fuera de la pista. Las marcas, los récords y las finales están ahí, pero lo mejor de todo es la gente y los recuerdos que te llevas de este deporte. Esto va por ti.</p><div class="rule"></div><p style="text-align:center;margin-bottom:4px">CÓDIGO OFICIAL DE APERTURA</p><div class="code">${esc(CONFIG.codigoCandado)}</div><p style="text-align:center">Puede proceder a abrir su bote de <strong>Proteína Camuños</strong>. Consúmase con responsabilidad y con cojones.</p><div class="actions" style="justify-content:center"><button class="btn alt" id="restart">REPETIR EXAMEN</button></div>`;document.querySelector('#restart').onclick=()=>{mistakes=0;route='normal';renderStart()};confetti()}
+function confetti(){const root=document.querySelector('#confetti');root.innerHTML='';if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;for(let i=0;i<65;i++){let c=document.createElement('i');c.style.left=Math.random()*100+'%';c.style.background=['#e8c987','#9b3045','#fff5e2','#151216'][i%4];c.style.animationDelay=Math.random()*1.7+'s';c.style.animationDuration=(2.8+Math.random()*2)+'s';root.append(c)}setTimeout(()=>root.innerHTML='',5500)}
+renderStart();
+</script>
+</body>
+</html>
